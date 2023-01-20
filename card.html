@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cytocyber | Card</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <meta name="theme-color" content="#812ae4">
+    <link rel="icon" href="logo2.png">
+    <style>
+details {  
+  margin: 0 auto ;
+  margin-bottom: .5rem;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+summary {
+  padding: 1rem;
+  cursor: pointer;
+  display: block;
+  color: black;
+  background: rgb(255, 255, 255);
+  padding-left: 2.2rem;
+  position: relative;
+  transition: 0.1s;
+}
+summary:hover{
+    background: rgb(248, 242, 252);
+}
+
+summary:before {
+  content: '';
+  border-width: .4rem;
+  border-style: solid;
+  border-color: transparent transparent transparent rgb(190, 190, 190);
+  position: absolute;
+  top: 1.3rem;
+  left: 1rem;
+  transform: rotate(0);
+  transform-origin: .2rem 50%;
+  transition: .25s transform ease;
+}
+
+/* THE MAGIC 🧙‍♀️ */
+details[open] > summary:before {
+  transform: rotate(90deg);
+}
+
+
+details summary::-webkit-details-marker {
+  display:none;
+}
+
+details > ul {
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+}
+    </style>
+    <style>
+        details ul li a{
+            color: gray;
+        }
+        details ul li a:hover{
+            background-color: rgb(255, 236, 255);
+            border-radius: 8px;
+            color: rgb(68, 66, 70);
+        }      
+        #aside{
+            position: fixed;
+            margin: 25px;
+            left:10%;
+            height: 86%;
+            overflow: auto;
+            user-select: none;
+        }
+        .aside-item{
+            transform: translateX(20%);
+            padding: 10px;
+            margin: 5px;
+            font-size: 14px;
+            color: gray;
+            list-style-type: none;
+            cursor:pointer;
+
+        }
+        .aside-item-active{
+            transform: translateX(20%);
+            padding: 10px;
+            margin: 5px;
+            font-size: 14px;
+            color: rgb(44, 36, 51);
+            list-style-type: none;
+            cursor:pointer;
+
+        }
+        .aside-item:hover{
+            color: rgb(68, 66, 70);
+        }
+        
+        .content{
+            width: 50%;
+            padding: 20px;
+            margin: 10px;
+            transform: translateX(5%);
+        }
+        @media only screen and (max-width: 1140px) {
+            .content{
+                width: 50%;
+                padding: 20px;
+                margin: 10px;
+                transform: translateX(15%);
+            }
+
+        }
+        @media only screen and (max-width: 900px) {
+            .content{
+                width: 50%;
+                padding: 20px;
+                margin: 10px;
+                transform: translateX(25%);
+            }
+            #aside{
+                position: fixed;
+                margin: 25px;
+                left:5%;
+                user-select: none;
+            }
+        }
+        @media only screen and (max-width: 750px) {
+            #aside{
+                user-select: none;
+                left: 0%;
+                margin: 0;
+                position: relative;
+                width: 90% !important;
+            }
+            .content{
+                width: 90%;
+                padding: 10px;
+                margin: 5px;
+                transform: translateX(0%);
+            }
+        }
+        a{
+            text-decoration: none;
+        }
+        .contain{
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 0.1px solid rgb(226, 226, 226);
+        }
+        @media only screen and (max-width: 414px) {
+            .contain{
+                padding: 8px;
+                margin: -15px;
+                margin-top: 8px;
+                border-radius: 8px;
+                border: 0.1px solid rgb(226, 226, 226);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="all">
+    <nav class="nav p-fixed">
+        <li class="nav-item-brand"><img src="logo2.png" width="50px" style="margin-left:10px ;" /></li>
+        <li class="nav-item-brand"><a href="#" class="brand">Cytocyber</a></li>
+        <div class="items-main">
+            <li class="nav-item"><a href="index.html" class="nav-item-content">Home</a></li>
+            <li class="nav-item"><a href="introduction.html" class="nav-item-content">Docs</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-item-content">Contact</a></li>
+            <li class="nav-item"><a href="privacy.html" class="nav-item-content">Privacy</a></li>
+            <div  class="nav-item p-absolute r-2">
+                <input type="text" class="input-success" style="width: 250px;" id="search" placeholder="Search" />
+                <button class="btn-outline-success" id="btn-search" onclick="myFunction()">Search</button>
+            </div>
+        </div>
+        <div class="items" id="items" >
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html" class="nav-item-content">Home</a>
+            <a href="introduction.html" class="nav-item-content">Docs</a>
+            <a href="contact.html" class="nav-item-content">Contact</a>
+            <a href="privacy.html" class="nav-item-content">Privacy</a>
+            <div align="center">
+                <input type="text" class="input-purple" style="display: inline-block; width: 60%;" id="search1" placeholder="Search"/>
+                <button class="btn-outline-purple" style="display: inline-block;"  onclick="myFunction1()">Search</button>
+            </div>
+            <div align="center" class="p-absolute b-6 l-0 r-50" style="transform: translateX(50%);">
+                <img src="logo.png" width="200px" >
+            </div>
+        </div>
+        <div class="menu" onclick="openNav()">
+            <div class="menu-lign"></div>
+            <div class="menu-lign"></div>
+            <div class="menu-lign"></div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <div align="center">
+        <div align="right" class="box" >
+            <button class="btn-purple" onclick="clickBox()" style="padding: 0px;">
+                <img id="show" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTUgMTJjMCAxLjY1NC0xLjM0NiAzLTMgM3MtMy0xLjM0Ni0zLTMgMS4zNDYtMyAzLTMgMyAxLjM0NiAzIDN6bTktLjQ0OXMtNC4yNTIgOC40NDktMTEuOTg1IDguNDQ5Yy03LjE4IDAtMTIuMDE1LTguNDQ5LTEyLjAxNS04LjQ0OXM0LjQ0Ni03LjU1MSAxMi4wMTUtNy41NTFjNy42OTQgMCAxMS45ODUgNy41NTEgMTEuOTg1IDcuNTUxem0tNyAuNDQ5YzAtMi43NTctMi4yNDMtNS01LTVzLTUgMi4yNDMtNSA1IDIuMjQzIDUgNSA1IDUtMi4yNDMgNS01eiIvPjwvc3ZnPg==">
+                <img id="hide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTEuODg1IDE0Ljk4OGwzLjEwNC0zLjA5OC4wMTEuMTFjMCAxLjY1NC0xLjM0NiAzLTMgM2wtLjExNS0uMDEyem04LjA0OC04LjAzMmwtMy4yNzQgMy4yNjhjLjIxMi41NTQuMzQxIDEuMTQ5LjM0MSAxLjc3NiAwIDIuNzU3LTIuMjQzIDUtNSA1LS42MzEgMC0xLjIyOS0uMTMtMS43ODUtLjM0NGwtMi4zNzcgMi4zNzJjMS4yNzYuNTg4IDIuNjcxLjk3MiA0LjE3Ny45NzIgNy43MzMgMCAxMS45ODUtOC40NDkgMTEuOTg1LTguNDQ5cy0xLjQxNS0yLjQ3OC00LjA2Ny00LjU5NXptMS40MzEtMy41MzZsLTE4LjYxOSAxOC41OC0xLjM4Mi0xLjQyMiAzLjQ1NS0zLjQ0N2MtMy4wMjItMi40NS00LjgxOC01LjU4LTQuODE4LTUuNThzNC40NDYtNy41NTEgMTIuMDE1LTcuNTUxYzEuODI1IDAgMy40NTYuNDI2IDQuODg2IDEuMDc1bDMuMDgxLTMuMDc1IDEuMzgyIDEuNDJ6bS0xMy43NTEgMTAuOTIybDEuNTE5LTEuNTE1Yy0uMDc3LS4yNjQtLjEzMi0uNTM4LS4xMzItLjgyNyAwLTEuNjU0IDEuMzQ2LTMgMy0zIC4yOTEgMCAuNTY3LjA1NS44MzMuMTM0bDEuNTE4LTEuNTE1Yy0uNzA0LS4zODItMS40OTYtLjYxOS0yLjM1MS0uNjE5LTIuNzU3IDAtNSAyLjI0My01IDUgMCAuODUyLjIzNSAxLjY0MS42MTMgMi4zNDJ6Ii8+PC9zdmc+">
+            </button>
+        </div>
+        <div  id="aside" align="left">
+            <details>
+                <summary width="150px">Getting started</summary>
+                <ul class="aside-list">
+                    <li class="aside-item"><a href="introduction.html" class="aside-item">Introduction</a></li>
+                    <li class="aside-item"><a href="download.html" class="aside-item">Download</a></li>
+                </ul>
+            </details>
+            <details open>
+                <summary width="150px">Components</summary>
+                <ul class="aside-list">
+                    <li class="aside-item"><a href="accordion.html" class="aside-item">Accordion</a></li>
+                    <li class="aside-item"><a href="alert.html" class="aside-item">Alert</a></li>
+                    <li class="aside-item"><a href="buttons.html" class="aside-item">Buttons</a></li>
+                    <li class="aside-item"><a href="badge.html" class="aside-item">Badge</a></li>
+                    <li class="aside-item-active"><a href="card.html" class="aside-item-active">Card</a></li>
+                    <li class="aside-item"><a href="collapse.html" class="aside-item">Collapse</a></li>
+                    <li class="aside-item"><a href="dropdown.html" class="aside-item">Drop down</a></li>
+                    <li class="aside-item"><a href="item.html" class="aside-item">Item</a></li>
+                    <li class="aside-item"><a href="modal.html" class="aside-item">Modal</a></li>
+                    <li class="aside-item"><a href="navbar.html" class="aside-item">Navbar</a></li>
+                </ul>
+            </details>
+            <details>
+                <summary width="150px">Forms</summary>
+                <ul class="aside-list">
+                    <li class="aside-item"><a href="input.html" class="aside-item">Input</a></li>
+                    <li class="aside-item"><a href="textarea.html" class="aside-item">Textarea</a></li>
+                    <li class="aside-item"><a href="select.html" class="aside-item">Select</a></li>
+                    <li class="aside-item"><a href="checkbox.html" class="aside-item">Checkbox</a></li>
+                </ul>
+            </details>
+            <details>
+                <summary width="150px">Helpers</summary>
+                <ul class="aside-list">
+                    <li class="aside-item"><a href="positions.html" class="aside-item">Positions</a></li>
+                    <li class="aside-item"><a href="displays.html" class="aside-item">Displays</a></li>
+                    <li class="aside-item"><a href="zindex.html" class="aside-item">Z-index</a></li>
+                    <li class="aside-item"><a href="spacers.html" class="aside-item">Spacers</a></li>
+                </ul>
+            </details>
+        </div>
+        <br>
+        <br>
+        <div align="left" class="content">
+            <h1 class="d-in_block">Card</h1><span style="color: gray;font-size: 10px;" class="d-in_block pad-2">(Components)</span>
+            <br>
+            <br>
+            <hr>
+            <br>
+            <br>
+            <br>
+            <h1>Example</h1>
+            <ul class="mar-2 pad-2" style="font-size: 18px;">
+                <li class="mar-2" style="color: gray;"><code style="color: rgb(255, 0, 55);">card</code></li>
+                <li class="mar-2" style="color: gray;"><code style="color: rgb(255, 0, 55);">card-img</code></li>
+                <li class="mar-2" style="color: gray;"><code style="color: rgb(255, 0, 55);">card-title</code></li>
+                <li class="mar-2" style="color: gray;"><code style="color: rgb(255, 0, 55);">card-subtitle</code></li>
+            </ul>
+            <div align="center" class="contain">
+                <div class="card" align="left">
+                    <img class="card-img" src="data:image/jpeg;base64,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">
+                    <div class="card-title">Title</div>
+                    <div class="card-subtitle">Subtitle</div>
+                    <button class="btn-primary">Go</button>
+                </div>
+            </div>
+            <br>
+            <br>
+<pre class="wp-block-code prettyprint linenums bold" style="overflow: auto;border: none;" id="code1"><xmp style="padding: 5px;" ><div class="card">
+    <img class="card-img" src="...">
+    <div class="card-title">Title</div>
+    <div class="card-subtitle">Subtitle</div>
+    <button class="btn-primary">Go</button>
+</div>
+</xmp></pre> 
+            <br>
+            <br>
+
+            <script>
+                document.getElementById("code1").addEventListener("click",function(){
+                    navigator.clipboard.writeText(`
+<div class="card">
+    <img class="card-img" src="...">
+    <div class="card-title">Title</div>
+    <div class="card-subtitle">Subtitle</div>
+    <button class="btn-primary">Go</button>
+</div>
+                    `);
+                    alert("Copied!");
+                })
+
+            </script>
+        
+    </div>
+</div>
+<footer id="footer" align="center" >
+    <div class="d-in_block" align="center"><h5 class="d-in_block mar-5 down"><a href="https://porbet.github.io/porbetMain/">Main website</a></h5> <h5 class="d-in_block mar-5 down"><a href="introduction.html">Docs</a></h5> <h5 class="d-in_block mar-5 down"><a href="contact.html">Contact</a></h5> <h5 class="d-in_block mar-5 down"><a href="privacy.html">Privacy</a></h5> <h5 class="d-in_block mar-5 down"><a href="sponsor">Sponsor</a></h5> <h5 class="d-in_block mar-5">Porbet, Inc © 2019 - 2022</h5></div>
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>

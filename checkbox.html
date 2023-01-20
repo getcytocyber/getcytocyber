@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cytocyber | Checkbox</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <meta name="theme-color" content="#812ae4">
+    <link rel="icon" href="logo2.png">
+    <style>
+details {  
+  margin: 0 auto ;
+  margin-bottom: .5rem;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+summary {
+  padding: 1rem;
+  cursor: pointer;
+  display: block;
+  color: black;
+  background: rgb(255, 255, 255);
+  padding-left: 2.2rem;
+  position: relative;
+  transition: 0.1s;
+}
+summary:hover{
+    background: rgb(248, 242, 252);
+}
+
+summary:before {
+  content: '';
+  border-width: .4rem;
+  border-style: solid;
+  border-color: transparent transparent transparent rgb(190, 190, 190);
+  position: absolute;
+  top: 1.3rem;
+  left: 1rem;
+  transform: rotate(0);
+  transform-origin: .2rem 50%;
+  transition: .25s transform ease;
+}
+
+/* THE MAGIC 🧙‍♀️ */
+details[open] > summary:before {
+  transform: rotate(90deg);
+}
+
+
+details summary::-webkit-details-marker {
+  display:none;
+}
+
+details > ul {
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+}
+    </style>
+    <style>
+        details ul li a{
+            color: gray;
+        }
+        details ul li a:hover{
+            background-color: rgb(255, 236, 255);
+            border-radius: 8px;
+            color: rgb(68, 66, 70);
+        }      
+        #aside{
+            position: fixed;
+            margin: 25px;
+            left:10%;
+            height: 86%;
+            overflow: auto;
+            user-select: none;
+        }
+        .aside-item{
+            transform: translateX(20%);
+            padding: 10px;
+            margin: 5px;
+            font-size: 14px;
+            color: gray;
+            list-style-type: none;
+            cursor:pointer;
+
+        }
+        .aside-item-active{
+            transform: translateX(20%);
+            padding: 10px;
+            margin: 5px;
+            font-size: 14px;
+            color: rgb(44, 36, 51);
+            list-style-type: none;
+            cursor:pointer;
+
+        }
+        .aside-item:hover{
+            color: rgb(68, 66, 70);
+        }
+        
+        .content{
+            width: 50%;
+            padding: 20px;
+            margin: 10px;
+            transform: translateX(5%);
+        }
+        @media only screen and (max-width: 1140px) {
+            .content{
+                width: 50%;
+                padding: 20px;
+                margin: 10px;
+                transform: translateX(15%);
+            }
+
+        }
+        @media only screen and (max-width: 900px) {
+            .content{
+                width: 50%;
+                padding: 20px;
+                margin: 10px;
+                transform: translateX(25%);
+            }
+            #aside{
+                position: fixed;
+                margin: 25px;
+                left:5%;
+                user-select: none;
+            }
+        }
+        @media only screen and (max-width: 750px) {
+            #aside{
+                user-select: none;
+                left: 0%;
+                margin: 0;
+                position: relative;
+                width: 90% !important;
+            }
+            .content{
+                width: 90%;
+                padding: 10px;
+                margin: 5px;
+                transform: translateX(0%);
+            }
+        }
+        a{
+            text-decoration: none;
+        }
+        .contain{
+            padding: 30px;
+            margin: 5px;
+            border-radius: 8px;
+            border: 0.1px solid rgb(226, 226, 226);
+        }
+        @media only screen and (max-width: 414px) {
+            .contain{
+                padding: 8px;
+                margin: -15px;
+                margin-left: 5px;
+                margin-right: 5px;
+                margin-top: 8px;
+                margin-bottom: 8px;
+                border-radius: 8px;
+                border: 0.1px solid rgb(255, 255, 255);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="all">
+    <nav class="nav p-fixed">
+        <li class="nav-item-brand"><img src="logo2.png" width="50px" style="margin-left:10px ;" /></li>
+        <li class="nav-item-brand"><a href="#" class="brand">Cytocyber</a></li>
+        <div class="items-main">
+            <li class="nav-item"><a href="index.html" class="nav-item-content">Home</a></li>
+            <li class="nav-item"><a href="introduction.html" class="nav-item-content">Docs</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-item-content">Contact</a></li>
+            <li class="nav-item"><a href="privacy.html" class="nav-item-content">Privacy</a></li>
+            <div  class="nav-item p-absolute r-2">
+                <input type="text" class="input-success" style="width: 250px;" id="search" placeholder="Search" />
+                <button class="btn-outline-success" id="btn-search" onclick="myFunction()">Search</button>
+            </div>
+        </div>
+        <div class="items" id="items" >
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html" class="nav-item-content">Home</a>
+            <a href="introduction.html" class="nav-item-content">Docs</a>
+            <a href="contact.html" class="nav-item-content">Contact</a>
+            <a href="privacy.html" class="nav-item-content">Privacy</a>
+            <div align="center">
+                <input type="text" class="input-purple" style="display: inline-block; width: 60%;" id="search1" placeholder="Search"/>
+                <button class="btn-outline-purple" style="display: inline-block;"  onclick="myFunction1()">Search</button>
+            </div>
+            <div align="center" class="p-absolute b-6 l-0 r-50" style="transform: translateX(50%);">
+                <img src="logo.png" width="200px" >
+            </div>
+        </div>
+        <div class="menu" onclick="openNav()">
+            <div class="menu-lign"></div>
+            <div class="menu-lign"></div>
+            <div class="menu-lign"></div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <div align="center">
+        <div align="right" class="box" >
+            <button class="btn-purple" onclick="clickBox()" style="padding: 0px;">
+                <img id="show" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTUgMTJjMCAxLjY1NC0xLjM0NiAzLTMgM3MtMy0xLjM0Ni0zLTMgMS4zNDYtMyAzLTMgMyAxLjM0NiAzIDN6bTktLjQ0OXMtNC4yNTIgOC40NDktMTEuOTg1IDguNDQ5Yy03LjE4IDAtMTIuMDE1LTguNDQ5LTEyLjAxNS04LjQ0OXM0LjQ0Ni03LjU1MSAxMi4wMTUtNy41NTFjNy42OTQgMCAxMS45ODUgNy41NTEgMTEuOTg1IDcuNTUxem0tNyAuNDQ5YzAtMi43NTctMi4yNDMtNS01LTVzLTUgMi4yNDMtNSA1IDIuMjQzIDUgNSA1IDUtMi4yNDMgNS01eiIvPjwvc3ZnPg==">
+                <img id="hide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTEuODg1IDE0Ljk4OGwzLjEwNC0zLjA5OC4wMTEuMTFjMCAxLjY1NC0xLjM0NiAzLTMgM2wtLjExNS0uMDEyem04LjA0OC04LjAzMmwtMy4yNzQgMy4yNjhjLjIxMi41NTQuMzQxIDEuMTQ5LjM0MSAxLjc3NiAwIDIuNzU3LTIuMjQzIDUtNSA1LS42MzEgMC0xLjIyOS0uMTMtMS43ODUtLjM0NGwtMi4zNzcgMi4zNzJjMS4yNzYuNTg4IDIuNjcxLjk3MiA0LjE3Ny45NzIgNy43MzMgMCAxMS45ODUtOC40NDkgMTEuOTg1LTguNDQ5cy0xLjQxNS0yLjQ3OC00LjA2Ny00LjU5NXptMS40MzEtMy41MzZsLTE4LjYxOSAxOC41OC0xLjM4Mi0xLjQyMiAzLjQ1NS0zLjQ0N2MtMy4wMjItMi40NS00LjgxOC01LjU4LTQuODE4LTUuNThzNC40NDYtNy41NTEgMTIuMDE1LTcuNTUxYzEuODI1IDAgMy40NTYuNDI2IDQuODg2IDEuMDc1bDMuMDgxLTMuMDc1IDEuMzgyIDEuNDJ6bS0xMy43NTEgMTAuOTIybDEuNTE5LTEuNTE1Yy0uMDc3LS4yNjQtLjEzMi0uNTM4LS4xMzItLjgyNyAwLTEuNjU0IDEuMzQ2LTMgMy0zIC4yOTEgMCAuNTY3LjA1NS44MzMuMTM0bDEuNTE4LTEuNTE1Yy0uNzA0LS4zODItMS40OTYtLjYxOS0yLjM1MS0uNjE5LTIuNzU3IDAtNSAyLjI0My01IDUgMCAuODUyLjIzNSAxLjY0MS42MTMgMi4zNDJ6Ii8+PC9zdmc+">
+            </button>
+        </div>
+        <div  id="aside" align="left">
+            <details>
+                <summary width="150px">Getting started</summary>
+                <ul class="aside-list">
+                    <li class="aside-item"><a href="introduction.html" class="aside-item">Introduction</a></li>
+                    <li class="aside-item"><a href="download.html" class="aside-item">Download</a></li>
+                </ul>
+            </details>
+            <details>
+                <summary width="150px">Components</summary>
+                <ul class="aside-list">
+                    <li class="aside-item"><a href="accordion.html" class="aside-item">Accordion</a></li>
+                    <li class="aside-item"><a href="alert.html" class="aside-item">Alert</a></li>
+                    <li class="aside-item"><a href="buttons.html" class="aside-item">Buttons</a></li>
+                    <li class="aside-item"><a href="badge.html" class="aside-item">Badge</a></li>
+                    <li class="aside-item"><a href="card.html" class="aside-item">Card</a></li>
+                    <li class="aside-item"><a href="collapse.html" class="aside-item">Collapse</a></li>
+                    <li class="aside-item"><a href="dropdown.html" class="aside-item">Drop down</a></li>
+                    <li class="aside-item"><a href="item.html" class="aside-item">Item</a></li>
+                    <li class="aside-item"><a href="modal.html" class="aside-item">Modal</a></li>
+                    <li class="aside-item"><a href="navbar.html" class="aside-item">Navbar</a></li>
+                </ul>
+            </details>
+            <details open>
+                <summary width="150px">Forms</summary>
+                <ul class="aside-list">
+                    <li class="aside-item"><a href="input.html" class="aside-item">Input</a></li>
+                    <li class="aside-item"><a href="textarea.html" class="aside-item">Textarea</a></li>
+                    <li class="aside-item"><a href="select.html" class="aside-item">Select</a></li>
+                    <li class="aside-item-active"><a href="checkbox.html" class="aside-item-active">Checkbox</a></li>
+                </ul>
+            </details>
+            <details>
+                <summary width="150px">Helpers</summary>
+                <ul class="aside-list">
+                    <li class="aside-item"><a href="positions.html" class="aside-item">Positions</a></li>
+                    <li class="aside-item"><a href="displays.html" class="aside-item">Displays</a></li>
+                    <li class="aside-item"><a href="zindex.html" class="aside-item">Z-index</a></li>
+                    <li class="aside-item"><a href="spacers.html" class="aside-item">Spacers</a></li>
+                </ul>
+            </details>
+        </div>
+        <br>
+        <br>
+        <div align="left" class="content">
+            <h1 class="d-in_block">Checkbox</h1><span style="color: gray;font-size: 10px;" class="d-in_block pad-2">(Forms)</span>
+            <br>
+            <br>
+            <hr>
+            <br>
+            <br>
+            <br>
+            <h1>Example</h1>
+            <ul class="mar-2 pad-2" style="font-size: 18px;">
+                <li class="mar-2" style="color: gray;"><code style="color: rgb(255, 0, 55);">switch</code></li>
+                <li class="mar-2" style="color: gray;"><code style="color: rgb(255, 0, 55);">checkbox-primary</code></li>
+                <li class="mar-2" style="color: gray;"><code style="color: rgb(255, 0, 55);">checkbox-secondary</code></li>
+                <li class="mar-2" style="color: gray;"><code style="color: rgb(255, 0, 55);">checkbox-success</code></li>
+                <li class="mar-2" style="color: gray;"><code style="color: rgb(255, 0, 55);">checkbox-danger</code></li>
+                <li class="mar-2" style="color: gray;"><code style="color: rgb(255, 0, 55);">checkbox-warning</code></li>
+                <li class="mar-2" style="color: gray;"><code style="color: rgb(255, 0, 55);">slider</code></li>
+            </ul>
+            <div align="center" class="contain">
+                <label class="switch mar-2">
+                    <input type="checkbox" class="checkbox-primary" checked>
+                    <span class="slider"></span>
+                </label>
+                <label class="switch mar-2">
+                    <input type="checkbox" class="checkbox-secondary" checked>
+                    <span class="slider"></span>
+                </label>
+                <label class="switch mar-2">
+                    <input type="checkbox" class="checkbox-success" checked>
+                    <span class="slider"></span>
+                </label>
+                <label class="switch mar-2">
+                    <input type="checkbox" class="checkbox-danger" checked>
+                    <span class="slider"></span>
+                </label>
+                <label class="switch mar-2">
+                    <input type="checkbox" class="checkbox-warning" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <br>
+<pre class="wp-block-code prettyprint linenums bold" style="overflow: auto;border: none;" id="code1"><xmp style="padding: 5px;" ><label class="switch">
+    <input type="checkbox" class="checkbox-primary" checked>
+    <span class="slider"></span>
+</label>
+<label class="switch">
+    <input type="checkbox" class="checkbox-secondary" checked>
+    <span class="slider"></span>
+</label>
+<label class="switch">
+    <input type="checkbox" class="checkbox-success" checked>
+    <span class="slider"></span>
+</label>
+<label class="switch">
+    <input type="checkbox" class="checkbox-danger" checked>
+    <span class="slider"></span>
+</label>
+<label class="switch">
+    <input type="checkbox" class="checkbox-warning" checked>
+    <span class="slider"></span>
+</label>
+</xmp></pre> 
+            <br>
+            <br>
+
+            <script>
+                document.getElementById("code1").addEventListener("click",function(){
+                    navigator.clipboard.writeText(`
+<label class="switch">
+    <input type="checkbox" class="checkbox-primary" checked>
+    <span class="slider"></span>
+</label>
+<label class="switch">
+    <input type="checkbox" class="checkbox-secondary" checked>
+    <span class="slider"></span>
+</label>
+<label class="switch">
+    <input type="checkbox" class="checkbox-success" checked>
+    <span class="slider"></span>
+</label>
+<label class="switch">
+    <input type="checkbox" class="checkbox-danger" checked>
+    <span class="slider"></span>
+</label>
+<label class="switch">
+    <input type="checkbox" class="checkbox-warning" checked>
+    <span class="slider"></span>
+</label>
+                    `);
+                    alert("Copied!");
+                })
+
+            </script>
+        
+    </div>
+</div>
+<footer id="footer" align="center" >
+    <div class="d-in_block" align="center"><h5 class="d-in_block mar-5 down"><a href="https://porbet.github.io/porbetMain/">Main website</a></h5> <h5 class="d-in_block mar-5 down"><a href="introduction.html">Docs</a></h5> <h5 class="d-in_block mar-5 down"><a href="contact.html">Contact</a></h5> <h5 class="d-in_block mar-5 down"><a href="privacy.html">Privacy</a></h5> <h5 class="d-in_block mar-5 down"><a href="sponsor">Sponsor</a></h5> <h5 class="d-in_block mar-5">Porbet, Inc © 2019 - 2022</h5></div>
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>
