@@ -108,13 +108,17 @@ div img{
   transform: translateY(-7%) !important;
 }
 #banner{
-  background-color: black;
+  
   padding: 150px;
   margin: 20px;
   border-radius: 10px;
-  background-image: url("icones/background.jpg");
+  
   background-repeat: no-repeat, repeat;
 
+}
+.all{
+  background-image: url("background2.png");
+  background-repeat: no-repeat, repeat;
 }
 .review{
   border: 0.5px solid rgb(179, 179, 179);
@@ -131,14 +135,14 @@ div img{
 </head>
 <body>
 <div class="all">
-    <nav class="nav p-fixed">
-      <li class="nav-item-brand"><img src="logo2.png" width="50px" style="margin-left:10px ;" /></li>
-      <li class="nav-item-brand"><a class="brand">Cytocyber</a></li>
+    <nav class="nav p-fixed" id="nav" style="background-color: #ffffff2c; ">
+      <li class="nav-item-brand"><img src="logo.png" width="170px" style="margin-left:10px ;" /></li>
+
         <div class="items-main">
             <li class="nav-item"><a href="index.html" class="nav-item-content">Home</a></li>
             <li class="nav-item"><a href="introduction.html" class="nav-item-content">Docs</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-item-content">Contact</a></li>
-            <li class="nav-item"><a href="privacy.html" class="nav-item-content">Privacy</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-item-content">Contact Us</a></li>
+            <li class="nav-item"><a href="privacy.html" class="nav-item-content">Privacy policy</a></li>
             <div  class="nav-item p-absolute r-2">
               <a href="introduction.html" class="nav-item-content" style="transform: translateY(-18%) translateX(18%);"><button class="btn-purple" >Get started</button></a>
               <a href="Cytocyber.rar" download class="nav-item-content" style="transform: translateY(-18%);"><button class="btn-outline-purple" >Download</button></a>
@@ -146,10 +150,52 @@ div img{
         </div>
         <div class="items" id="items" >
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="index.html" class="nav-item-content">Home</a>
-            <a href="introduction.html" class="nav-item-content">Docs</a>
-            <a href="contact.html" class="nav-item-content">Contact</a>
-            <a href="privacy.html" class="nav-item-content">Privacy</a>
+            <a href="index.html" class="nav-item-content">
+              <span class="material-symbols-outlined" style="color: rgb(128, 23, 155);
+              font-size: 30px;
+              background-color: rgb(230, 230, 230);
+              -webkit-transition: background-color 1000ms linear;
+              -ms-transition: background-color 1000ms linear;
+              transition: background-color 1000ms linear;
+              padding: 10px;
+              box-shadow: 5px 5px 25px -10px rgb(173, 173, 173);
+              border-radius: 10px;">
+              home
+              </span> <div style="display:inline-block; transform: translateY(-30%) translateX(30%);">Home</div></a>
+            <a href="introduction.html" class="nav-item-content">
+              <span class="material-symbols-outlined" style="color: rgb(128, 23, 155);
+              font-size: 30px;
+              background-color: rgb(230, 230, 230);
+              -webkit-transition: background-color 1000ms linear;
+              -ms-transition: background-color 1000ms linear;
+              transition: background-color 1000ms linear;
+              padding: 10px;
+              box-shadow: 5px 5px 25px -10px rgb(173, 173, 173);
+              border-radius: 10px;">
+              menu_book
+              </span><div style="display:inline-block; transform: translateY(-30%) translateX(45%);">Docs</div></a>
+            <a href="contact.html" class="nav-item-content"><span class="material-symbols-outlined" style="color: rgb(128, 23, 155);
+              font-size: 30px;
+              background-color: rgb(230, 230, 230);
+              -webkit-transition: background-color 1000ms linear;
+              -ms-transition: background-color 1000ms linear;
+              transition: background-color 1000ms linear;
+              padding: 10px;
+              box-shadow: 5px 5px 25px -10px rgb(173, 173, 173);
+              border-radius: 10px;">
+              phone_in_talk
+              </span><div style="display:inline-block; transform: translateY(-30%) translateX(20%);">Contact Us</div></a>
+            <a href="privacy.html" class="nav-item-content">  <span class="material-symbols-outlined" style="color: rgb(128, 23, 155);
+              font-size: 30px;
+              background-color: rgb(230, 230, 230);
+              -webkit-transition: background-color 1000ms linear;
+              -ms-transition: background-color 1000ms linear;
+              transition: background-color 1000ms linear;
+              padding: 10px;
+              box-shadow: 5px 5px 25px -10px rgb(173, 173, 173);
+              border-radius: 10px;">
+              lock
+              </span><div style="display:inline-block; transform: translateY(-30%) translateX(20%);">Privacy policy</div> </a>
             <div align="center" class="p-absolute b-6 l-0 r-50" style="transform: translateX(50%);">
                 <img src="logo.png" width="200px" >
             </div>
@@ -160,15 +206,21 @@ div img{
             <div class="menu-lign"></div>
         </div>
     </nav>
+    <script>
+      addEventListener("scroll", function() {
+        document.getElementById("nav").style.backgroundColor = "#ffffff";
+      });
+    </script>
     <br>
     <br>
     <br>
+    <div align="center">
 <div align="center" id="full">    
     
-      <div style="" id="banner" align="left">
-        <h1 style="font-size: 45px; font-weight: normal !important; color: white;"><strong>Cytocyber</strong>: Design responsive web application faster  </h1>
+      <div style="" id="banner" align="center">
+        <h1 style="font-size: 45px; font-weight: normal !important; color: rgb(41, 40, 40);"><strong>Cytocyber</strong>: Design responsive web application faster  </h1>
         <br>
-        <span  style="font-size: 15px; display: inline-block; color: rgb(189, 189, 189); width: 50%;" id="description" >Cytocyber is a free, open-source framework for quickly design and customize responsive mobile-first sites.</span>
+        <span  style="font-size: 15px; display: inline-block; color: rgb(85, 85, 85); width: 50%;" id="description" >Cytocyber is a free, open-source framework for quickly design and customize responsive mobile-first sites.</span>
         <br>
         <br>
         <br>
@@ -205,16 +257,25 @@ div img{
         <br>
         <br>
       <div>
-        <div align="left">
-          <span class="material-symbols-outlined" style="color: rgb(128, 23, 155); font-size: 60px;">
+        <div align="left" style="margin: 10px;">
+          <span class="material-symbols-outlined" style="color: rgb(128, 23, 155);
+           font-size: 60px;
+           background-color: rgb(230, 230, 230);
+           -webkit-transition: background-color 1000ms linear;
+           -ms-transition: background-color 1000ms linear;
+           transition: background-color 1000ms linear;
+           padding: 10px;
+           box-shadow: 5px 5px 25px -10px rgb(173, 173, 173);
+           border-radius: 10px;
+            ">
             school 
           </span>
           <div class="d-in_block" style="font-size: 25px; transform: translateY(-50%); margin-left: 20px;"><strong>Easy</strong> to learn</div>
         </div>
         <br>
         <div align="center" class="mar-1">
-          <div align="right" class="d-in_block pad-5" style="transform: translateY(-60%); margin-right: 50px;" id="easy1">
-            <span style="color: gray; font-weight: normal; font-size: 40px;" id="js">No <strong>JS</strong> needed!</span>
+          <div align="center" class="d-in_block pad-5" style="transform: translateY(-60%); margin-right: 50px;" id="easy1">
+            <span style="color: gray; font-weight: normal; font-size: 40px;" id="js">No <i>Javascript</i> needed!</span>
           </div>
           <div align="left" class="d-in_block pad-5 ">
             <div id="easy2">
@@ -228,8 +289,17 @@ div img{
       </div>
       <br><br><br>
       <div>
-        <div align="left">
-          <span class="material-symbols-outlined" style="color: rgb(128, 23, 155); font-size: 60px;">
+        <div align="left" style="margin: 10px;">
+          <span class="material-symbols-outlined" style="color: rgb(128, 23, 155);
+          font-size: 60px;
+          background-color: rgb(230, 230, 230);
+          -webkit-transition: background-color 1000ms linear;
+          -ms-transition: background-color 1000ms linear;
+          transition: background-color 1000ms linear;
+          padding: 10px;
+          box-shadow: 5px 5px 25px -10px rgb(173, 173, 173);
+          border-radius: 10px;
+           ">
             reviews 
           </span>
           <div class="d-in_block" style="font-size: 25px; transform: translateY(-70%); margin-left: 10px;">Some <strong>Reviews</strong></div>
@@ -338,6 +408,7 @@ div img{
     </div>
   </div>
 </div>
+
 <br>
 <br>
 <br>
